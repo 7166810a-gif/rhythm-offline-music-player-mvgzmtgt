@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Rhythm - ריטם</string>
+    <string name="tab_home">בית</string>
+    <string name="tab_library">ספרייה</string>
+    <string name="tab_playlists">פלייליסטים</string>
+    <string name="tab_settings">הגדרות</string>
+    <string name="search_hint">חיפוש שירים, אמנים, מילים...</string>
+    <string name="grant_permission">נדרשת הרשאת גישה לקבצי שמע במכשיר כדי לנגן מוזיקה.</string>
+    <string name="btn_grant">אפשר גישה</string>
+    <string name="shelf_mixes">מיקסים בשבילך</string>
+    <string name="shelf_quick_dial">חיוג מהיר</string>
+    <string name="shelf_albums">אלבומים בשבילך</string>
+    <string name="shelf_live">הופעות חיות ורמיקסים</string>
+    <string name="shelf_top_artist">האמן המושמע ביותר</string>
+    <string name="library_songs">שירים</string>
+    <string name="library_artists">אמנים</string>
+    <string name="library_albums">אלבומים</string>
+    <string name="library_folders">תיקיות</string>
+    <string name="eq_title">אקולייזר ואיזון עוצמה</string>
+    <string name="lyrics_title">מילות שיר (סנכרון אופליין)</string>
+    <string name="queue_title">תור השמעה</string>
+    <string name="export_playlists">ייצוא פלייליסטים</string>
+    <string name="import_playlists">ייבוא פלייליסטים</string>
+    <string name="auto_tag_fix">ניקוי ותיקון תגיות אוטומטי</string>
+    <string name="save_tags_to_file">שמירת תיקונים לקובץ פיזי</string>
+    <string name="smart_ai_learned">למידת AI מקומית פעילה</string>
+    <string name="pause_on_zero">השעיה בווליום אפס</string>
+</resources>
