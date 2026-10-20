@@ -2,7 +2,6 @@ package com.generated.app;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -33,8 +32,6 @@ public class MainActivity extends Activity implements MusicService.OnPlayerState
     private LinearLayout rootLayout;
     private LinearLayout contentContainer;
     private LinearLayout miniPlayerLayout;
-    private LinearLayout fullPlayerSheet;
-    private boolean isFullPlayerVisible = false;
 
     // Navigation Tabs
     private TextView tabHome, tabLibrary, tabPlaylists, tabSettings;
@@ -44,13 +41,7 @@ public class MainActivity extends Activity implements MusicService.OnPlayerState
     private TextView miniTitle, miniArtist;
     private ImageView miniPlayBtn, miniNextBtn;
 
-    // Full Player views
-    private TextView fullTitle, fullArtist, fullScale, fullTimeCurrent, fullTimeTotal, fullLyricsView;
-    private SeekBar fullSeekBar;
-    private ImageView fullPlayBtn, fullPrevBtn, fullNextBtn, fullFavBtn;
-
     private Handler handler = new Handler(Looper.getMainLooper());
-    private Runnable updateSeekBarRunnable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -200,15 +191,12 @@ public class MainActivity extends Activity implements MusicService.OnPlayerState
     }
 
     private void buildHomeTab() {
-        // Shelf 1: Quick Dial / Mixed
         addShelfTitle(getString(R.string.shelf_mixes));
         addHorizontalSongList(MusicLibrary.getInstance().getAllSongs());
 
-        // Shelf 2: Live & Remixes
         addShelfTitle(getString(R.string.shelf_live));
         addHorizontalSongList(MusicLibrary.getInstance().getLiveAndRemixSongs());
 
-        // Shelf 3: Top Artist
         addShelfTitle(getString(R.string.shelf_top_artist));
         addHorizontalSongList(MusicLibrary.getInstance().getTopArtistSongs());
     }
@@ -313,9 +301,7 @@ public class MainActivity extends Activity implements MusicService.OnPlayerState
         menuDots.setTextSize(20);
         menuDots.setTextColor(0xFFFFFFFF);
         menuDots.setPadding(16, 0, 16, 0);
-        menuDots.setOnClickListener(v -> {
-            Toast.makeText(this, "אפשרויות שיר: " + song.title, Toast.LENGTH_SHORT).show();
-        });
+        menuDots.setOnClickListener(v -> Toast.makeText(this, "אפשרויות שיר: " + song.title, Toast.LENGTH_SHORT).show());
         row.addView(menuDots);
 
         row.setOnClickListener(v -> {
@@ -329,10 +315,6 @@ public class MainActivity extends Activity implements MusicService.OnPlayerState
 
     private void buildPlaylistsTab() {
         addShelfTitle("פלייליסטים חכמים ואוטומטיים");
-        List<Song> favs = new ArrayList<>();
-        for (Song s : MusicLibrary.getInstance().getAllSongs()) {
-            if (s.isFavorite) favs.add(s);
-        }
         
         LinearLayout plCard = new LinearLayout(this);
         plCard.setOrientation(LinearLayout.VERTICAL);
@@ -369,7 +351,7 @@ public class MainActivity extends Activity implements MusicService.OnPlayerState
         exportBtn.setTextColor(0xFFFFFFFF);
         exportBtn.setBackgroundResource(R.drawable.bg_rounded_card);
         exportBtn.setPadding(24, 24, 24, 24);
-        exportBtn.setOnClickListener(v -> Toast.TestCase(this, "הפלייליסטים יוצאו בהצלחה למכשיר!").show());
+        exportBtn.setOnClickListener(v -> Toast.makeText(this, "הפלייליסטים יוצאו בהצלחה למכשיר!", Toast.LENGTH_SHORT).show());
         contentContainer.addView(exportBtn);
     }
 
@@ -440,11 +422,7 @@ public class MainActivity extends Activity implements MusicService.OnPlayerState
         });
         miniPlayerLayout.addView(miniNextBtn);
 
-        miniPlayerLayout.setOnClickListener(v -> openFullPlayer());
-    }
-
-    private void openFullPlayer() {
-        Toast.makeText(this, "נגן מלא נפתח", Toast.LENGTH_SHORT).show();
+        miniPlayerLayout.setOnClickListener(v -> Toast.makeText(this, "נגן פעיל", Toast.LENGTH_SHORT).show());
     }
 
     private void filterSearch(String query) {

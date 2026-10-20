@@ -83,7 +83,7 @@ public class MusicLibrary {
             allSongs.add(new Song(1, "מזמור לדוד - הופעה חיה", "אברהם פריד", "אוסף חסידי", "/sdcard/Music/m1.mp3", 240000, System.currentTimeMillis()));
             allSongs.add(new Song(2, "אל הנער הזה - רמיקס", "מרדכי בן דוד", "רמיקסים מיוחדים", "/sdcard/Music/m2.mp3", 210000, System.currentTimeMillis()));
             allSongs.add(new Song(3, "שיר חדש אהבה רבה", "יעקב שוואקי", "מיטב הלהיטים", "/sdcard/Music/m3.mp3", 195000, System.currentTimeMillis()));
-            allSongs.add(new Song(4, "ניגון חב"ד עתיק", "הישיבה", "ניגונים", "/sdcard/Music/m4.mp3", 300000, System.currentTimeMillis()));
+            allSongs.add(new Song(4, "ניגון חבד עתיק", "הישיבה", "ניגונים", "/sdcard/Music/m4.mp3", 300000, System.currentTimeMillis()));
             allSongs.add(new Song(5, "מזרח שמש צדקה", "חיים ישראל", "מזרחי שקט", "/sdcard/Music/m5.mp3", 220000, System.currentTimeMillis()));
         }
 
@@ -102,9 +102,6 @@ public class MusicLibrary {
     }
 
     public List<Song> getAllSongs() {
-        if (!isScanned) {
-            // will be populated on first access if context provided elsewhere, else returns mock
-        }
         return uniqueSongs.isEmpty() ? allSongs : uniqueSongs;
     }
 
